@@ -151,7 +151,7 @@ Create a new container from `ex_1.10` image and publish 8080 port on host machin
 
 `$ docker run -p 8080:5000 ex_1.10`
 
-Check if everything worked as expected
+Check if everything is working as expected
 
 `$ curl http://localhost:8080`
 
@@ -211,7 +211,7 @@ Create a new container from `ex_1.12_back` image in detached mode and publish 80
 
 ![screenshot](img/Part1/1.12_run_back.png)
 
-Check if everything worked as expected
+Check if everything is working as expected
 
 ![screenshot](img/Part1/1.12_check.jpg)
 
@@ -231,7 +231,7 @@ Create a new container from `ex_1.13` image in detached mode and publish 8080 po
 
 ![screenshot](img/Part1/1.13_run.png)
 
-Check if everything worked as expected
+Check if everything is working as expected
 
 ![screenshot](img/Part1/1.13_check.jpg)
 
@@ -252,7 +252,7 @@ Create a new container from `ex_1.14` image in detached mode and publish 3000 po
 
 ![screenshot](img/Part1/1.14_run.png)
 
-Check if everything worked as expected
+Check if everything is working as expected
 
 ![screenshot](img/Part1/1.14_check.jpg)
 
@@ -286,7 +286,7 @@ Create a new container from `chanioxaris/mooc-devops-golang` image and publish 8
 
 ![screenshot](img/Part1/1.15_run.png)
 
-Check if everything worked as expected
+Check if everything is working as expected
 
 `$ curl http://localhost:8080/ping`
 

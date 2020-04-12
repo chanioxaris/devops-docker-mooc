@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  ex_2.3_front:
+    container_name: ex_2.3_front
+    build:
+      context: ../1.12
+      dockerfile: Dockerfile.frontend
+    ports:
+      - 5000:5000
+
+  ex_2.3_back:
+    container_name: ex_2.3_back
+    build:
+      context: ../1.12
+      dockerfile: Dockerfile.backend
+    ports:
+      - 8000:8000

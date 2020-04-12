@@ -1,0 +1,44 @@
+version: '3.5'
+
+services:
+  ex_2.8_front:
+    container_name: ex_2.8_front
+    build:
+      context: ../1.12
+      dockerfile: Dockerfile.frontend
+    ports:
+      - 5000:5000
+
+  ex_2.8_back:
+    container_name: ex_2.8_back
+    build:
+      context: ../1.12
+      dockerfile: Dockerfile.backend
+    environment:
+      - REDIS=ex_2.8_redis
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=ex_2.8_postgres
+    ports:
+      - 8000:8000
+
+  ex_2.8_redis:
+    container_name: ex_2.8_redis
+    image: redis
+
+  ex_2.8_postgres:
+    container_name: ex_2.8_postgres
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=password
+
+  ex_2.8_nginx:
+    container_name: ex_2.8_nginx
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+
+

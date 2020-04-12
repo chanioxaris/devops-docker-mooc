@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  ex_2.5_front:
+    container_name: ex_2.5_front
+    build:
+      context: ../1.12
+      dockerfile: Dockerfile.frontend
+    ports:
+      - 5000:5000
+
+  ex_2.5_back:
+    container_name: ex_2.5_back
+    build:
+      context: ../1.12
+      dockerfile: Dockerfile.backend
+    environment:
+      - REDIS=ex_2.5_redis
+    ports:
+      - 8000:8000
+
+  ex_2.5_redis:
+    container_name: ex_2.5_redis
+    image: redis

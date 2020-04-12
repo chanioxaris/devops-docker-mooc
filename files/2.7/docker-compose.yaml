@@ -1,0 +1,34 @@
+version: '3.5'
+
+services:
+  ex_2.7_front:
+    container_name: ex_2.7_front
+    build:
+      context: ml-kurkkumopo-frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - ex_2.7_back
+
+  ex_2.7_back:
+    container_name: ex_2.7_back
+    build:
+      context: ml-kurkkumopo-backend
+    ports:
+      - 5000:5000
+    volumes:
+      - model:/src/model
+    depends_on:
+      - ex_2.7_training
+
+  ex_2.7_training:
+    container_name: ex_2.7_training
+    build:
+      context: ml-kurkkumopo-training
+    volumes:
+      - model:/src/model
+      - imgs:/src/imgs
+
+volumes:
+  model:
+  imgs:
