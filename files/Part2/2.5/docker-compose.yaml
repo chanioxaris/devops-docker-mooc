@@ -4,16 +4,16 @@ services:
   ex_2.5_front:
     container_name: ex_2.5_front
     build:
-      context: ../1.12
-      dockerfile: Dockerfile.frontend
+      context: ../../Part1/1.12
+      dockerfile: ../../Part1/1.12/Dockerfile.frontend
     ports:
       - 5000:5000
 
   ex_2.5_back:
     container_name: ex_2.5_back
     build:
-      context: ../1.12
-      dockerfile: Dockerfile.backend
+      context: ../../Part1/1.12
+      dockerfile: ../../Part1/1.12/Dockerfile.backend
     environment:
       - REDIS=ex_2.5_redis
     ports:

@@ -4,8 +4,8 @@ services:
   ex_2.10_front:
     container_name: ex_2.10_front
     build:
-      context: ../1.12
-      dockerfile: Dockerfile.frontend
+      context: ../../Part1/1.12
+      dockerfile: ../../Part1/1.12/Dockerfile.frontend
     environment:
       - API_URL=/api/
     ports:
@@ -14,8 +14,8 @@ services:
   ex_2.10_back:
     container_name: ex_2.10_back
     build:
-      context: ../1.12
-      dockerfile: Dockerfile.backend
+      context: ../../Part1/1.12
+      dockerfile: ../../Part1/1.12/Dockerfile.backend
     environment:
       - REDIS=ex_2.10_redis
       - DB_USERNAME=postgres
