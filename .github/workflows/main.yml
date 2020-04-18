@@ -6,7 +6,10 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - master
+    paths:
+      - Part3/3.2
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,12 +31,14 @@ jobs:
 
     # Builds the project using Dockerfile and pushes to heroku registry
     - name: Build and push
+      working-directory: Part3/3.2 
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }} 
       run: heroku container:push -a chanioxaris-mooc-workflow web
         
     # Release app   
     - name: Release
+      working-directory: Part3/3.2 
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }} 
       run: heroku container:release -a chanioxaris-mooc-workflow web
