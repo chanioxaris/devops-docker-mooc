@@ -48,9 +48,9 @@ We reduced the image size for around `29 MB` by removing apt-source lists and cu
 
 We choose to use Github Actions instead of CircleCI to create a deployment pipeline to Heroku.
 
-A new `workflow.yml` file added that describes the action, the jobs and the steps that is located [here](.github/workflows/workflow.yml)
+A new `main.yml` file added that describes the action, the jobs and the steps that is located [here](.github/workflows/main.yml)
 
-The action is triggered only after a push occurs on master branch and the `Part3/3.2` directory.
+The action is being triggered if a push occurs on master branch and the `Part3/3.2` directory.
 
 You can find the deployed app [here](https://chanioxaris-mooc-workflow.herokuapp.com/)
 
