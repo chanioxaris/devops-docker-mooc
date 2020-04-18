@@ -8,8 +8,7 @@ on:
   push:
     branches: 
       - master
-    paths:
-      - 'Part3/3.2/golang-example-project/server.go'
+   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,7 +30,7 @@ jobs:
 
     # Builds the project using Dockerfile and pushes to heroku registry
     - name: Build and push
-      working-directory: Part3/3.2 
+      working-directory: Part3/3.2
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }} 
       run: heroku container:push -a chanioxaris-mooc-workflow web
