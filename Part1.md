@@ -50,9 +50,7 @@ Create a new container from `devopsdockeruh/pull_exercise` image in interactive 
 
 `$ docker run -it devopsdockeruh/pull_exercise`
 
-Use `basics` for input as described in the image readme at Docker hub. 
-
-This result to the secret message `This is the secret message`
+Use `basics` for input as described in the image readme at Docker hub. This result to the secret message `This is the secret message`.
 
 ![screenshot](Part1/1.3/img/1.3.png)
 
@@ -81,10 +79,10 @@ Then create a new container in interactive mode so that waits for user input.
 
 The Dockerfile is located [here](Part1/1.6/Dockerfile)
 
-The base Dockerfile uses the `./start.sh` script as entry point, so we have to add a CMD command on our 
+The base Dockerfile uses the `./start.sh` script as entry point, so we have to add a `CMD` command on our 
 own Dockerfile with the necessary arguments to start a clock.
 
-Build a new image from our Dockerfile and tag it as `docker-clock`.
+Build a new image from the Dockerfile and tag it as `docker-clock`.
 
 `$ docker build -t docker-clock .`
 
@@ -102,11 +100,11 @@ The Dockerfile is located [here](Part1/1.7/Dockerfile)
 
 The script is located [here](Part1/1.7/script.sh)
 
-We based our Dockerfile on `ubuntu:18.04` image. Install curl command, and copy `script.sh` script from local 
-host into the container. We also need to give execute permissions to our script, and a CMD command to 
+We based our Dockerfile on `ubuntu:18.04` image. Install curl command, and copy the `script.sh` file from the 
+host machine into the container. We also need to give execute (+x) permission to the script, and add a `CMD` command to 
 start it.
 
-Build a new image from our Dockerfile and tag it as `curler`.
+Build a new image from the Dockerfile and tag it as `curler`.
 
 `$ docker build -t curler .`
 
@@ -131,7 +129,7 @@ created `logs.txt` file.
 
 ![screenshot](Part1/1.8/img/1.8_run.png)
 
-Check the content of our local logs.txt file.
+Check the content of the local `logs.txt` file.
 
 ![screenshot](Part1/1.8/img/1.8_volume.png)
 
@@ -153,7 +151,7 @@ Check if port mapping worked as expected.
 
 The Dockerfile is located [here](Part1/1.10/Dockerfile)
 
-Build a new image from our Dockerfile 
+Build a new image from the Dockerfile.
 
 `$ docker build -t ex_1.10 .`
 
@@ -161,7 +159,7 @@ Create a new container from `ex_1.10` image and publish `8080` port on host mach
 
 `$ docker run -p 8080:5000 ex_1.10`
 
-Check if everything is working as expected
+Check if everything is working as expected.
 
 `$ curl http://localhost:8080`
 
@@ -175,17 +173,17 @@ On our host machine create a new `logs.txt` file.
 
 `$ touch logs.txt`
 
-Build a new image from our Dockerfile.
+Build a new image from the Dockerfile.
 
 `$ docker build -t ex_1.11 .`
 
-Create a new container from `ex_1.11` image, publish `8000` port on host machine and bind the corresponding volume.
+Create a new container from `ex_1.11` image, publish `8000` port and bind the corresponding volume.
 
 `$ docker run -p 8000:8000 --mount type=bind,source="$(pwd)"/logs.txt,target=/logs.txt ex_1.11`
 
 ![screenshot](Part1/1.11/img/1.11_run.png)
 
-Check the content of our local logs.txt file.
+Check the content of the local `logs.txt` file.
 
 ![screenshot](Part1/1.11/img/1.11_volume.png)
 
@@ -195,7 +193,7 @@ The Dockerfile for frontend project is located [here](Part1/1.12/Dockerfile.fron
 
 The Dockerfile for backend project is located [here](Part1/1.12/Dockerfile.backend)
 
-On both we have to set the requested environment variables `API_URL` and `FRONT_URL` to match the running url.
+We have to set the requested environment variables `API_URL` and `FRONT_URL` to match the running url.
 
 Build a new image from our frontend Dockerfile.
 
@@ -209,19 +207,19 @@ Build a new image from our backend Dockerfile.
 
 ![screenshot](Part1/1.12/img/1.12_build_back.png)
 
-Create a new container from `ex_1.12_front` image in detached mode and publish `5000` port on host machine.
+Create a new container from `ex_1.12_front` image in detached mode and publish `5000` port.
 
 `$ docker run -d -p 5000:5000 ex_1.12_front`
 
 ![screenshot](Part1/1.12/img/1.12_run_front.png)
 
-Create a new container from `ex_1.12_back` image in detached mode and publish `8000` port on host machine.
+Create a new container from `ex_1.12_back` image in detached mode and publish `8000` port.
 
 `$ docker run -d -p 8000:8000 ex_1.12_back`
 
 ![screenshot](Part1/1.12/img/1.12_run_back.png)
 
-Check if everything is working as expected
+Check if everything is working as expected.
 
 ![screenshot](Part1/1.12/img/1.12_check.jpg)
 
@@ -231,17 +229,17 @@ The Dockerfile is located [here](Part1/1.13/Dockerfile)
 
 Our Dockerfile is based on `openjdk:8` image as the project requires.
 
-Build a new image from our Dockerfile 
+Build a new image from the Dockerfile.
 
 `$ docker build -t ex_1.13 .`
 
-Create a new container from `ex_1.13` image in detached mode and publish `8080` port on host machine.
+Create a new container from `ex_1.13` image in detached mode and publish `8080` port.
 
 `$ docker run -d -p 8080:8080 ex_1.13`
 
 ![screenshot](Part1/1.13/img/1.13_run.png)
 
-Check if everything is working as expected
+Check if everything is working as expected.
 
 ![screenshot](Part1/1.13/img/1.13_check.jpg)
 
@@ -250,13 +248,13 @@ Check if everything is working as expected
 The Dockerfile is located [here](Part1/1.13/Dockerfile)
 
 Our Dockerfile is based on `ruby:2.6.0` as the project requires. We also need to change the permissions 
-of the `tmp` directory for the `apt-get` to be able to update and then install `node.js`.
+of the `tmp` directory for the `apt-get`, to be able to update and then install `node.js`.
 
-Build a new image from our Dockerfile.
+Build a new image from the Dockerfile.
 
 `$ docker build -t ex_1.14 .`
 
-Create a new container from `ex_1.14` image in detached mode and publish `3000` port on host machine.
+Create a new container from `ex_1.14` image in detached mode and publish `3000` port.
 
 `$ docker run -d -p 3000:3000 ex_1.14`
 
@@ -270,9 +268,9 @@ Check if everything is working as expected.
 
 The Dockerfile is located [here](Part1/1.15/Dockerfile)
 
-We will use an example application build with `golang` which is located [here](Part1/1.15/golang-example-project)
+We will use an example application build with `Golang` which is located [here](Part1/1.15/golang-example-project)
 
-Build a new image from our Dockerfile .
+Build a new image from the Dockerfile.
 
 `$ docker build -t ex_1.15 .`
 
@@ -284,13 +282,13 @@ Tag our newly created image.
 
 ![screenshot](Part1/1.15/img/1.15_tag.png)
 
-Push our image to Docker Hub site and can be found [here](https://hub.docker.com/repository/docker/chanioxaris/mooc-devops-golang)
+Push our image to Docker Hub, which can be found [here](https://hub.docker.com/repository/docker/chanioxaris/mooc-devops-golang)
 
 `$ docker push chanioxaris/mooc-devops-golang`
 
 ![screenshot](Part1/1.15/img/1.15_push.png)
 
-Create a new container from `chanioxaris/mooc-devops-golang` image and publish `8080` port on host machine.
+Create a new container from `chanioxaris/mooc-devops-golang` image and publish `8080` port.
 
 `$ docker run -p 8080:8080 chanioxaris/mooc-devops-golang`
 
@@ -308,7 +306,7 @@ Pull the requested `devopsdockeruh/heroku-example` image.
 
 `$ docker push devopsdockeruh/heroku-example`
 
-Tag it to match our heroku app name.
+Tag it to match our heroku app name (`chanioxaris-mooc-devops`).
 
 `$ docker tag devopsdockeruh/heroku-example registry.heroku.com/chanioxaris-mooc-devops/web`
 

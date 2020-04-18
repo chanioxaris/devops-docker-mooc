@@ -4,7 +4,7 @@
 
 The Docker Compose is located [here](Part2/2.1/docker-compose.yaml)
 
-On our host machine create a new file `logs.txt` to mount into the container.
+On the host machine create a new file `logs.txt` to mount into the container.
 
 `$ touch logs.txt`
 
@@ -14,7 +14,7 @@ Create a new container.
 
 ![screenshot](Part2/2.1/img/2.1_up.png)
 
-Check the content of our local `logs.txt` file.
+Check the content of the local `logs.txt` file.
 
 ![screenshot](Part2/2.1/img/2.1_volume.png)
 
@@ -98,7 +98,7 @@ Create frontend, backend and training containers.
 
 ![screenshot](Part2/2.7/img/2.7_up.png)
 
-We must wait for the training container to create the model. Tail the logs of the container to be informed when is ready.
+We must wait for the training container to create the model. Tail the logs of the container (`ex_2.7_training`) to be informed when it is ready.
 
 `$ docker logs ex_2.7_training -f`
 
@@ -128,7 +128,7 @@ The Docker Compose is located [here](Part2/2.9/docker-compose.yaml)
 
 The needed nginx.conf file is located [here](Part2/2.9/nginx.conf)
 
-On our host machine create a new directory `database` to mount into postgres container.
+On the host machine create a new directory `database` to mount into postgres container.
 
 `$ mkdir database`
 
@@ -152,7 +152,7 @@ The Docker Compose is located [here](Part2/2.10/docker-compose.yaml)
 
 The needed `nginx.conf` file is located [here](Part2/2.10/nginx.conf)
 
-On our host machine create a new directory `database` to mount into postgres container.
+On the host machine create a new directory `database` to mount into postgres container.
 
 `$ mkdir database`
 
