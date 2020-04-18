@@ -1,0 +1,16 @@
+FROM node:alpine
+
+ENV FRONT_URL=http://localhost:5000
+
+COPY backend-example-docker .
+
+RUN npm install && \
+    adduser -D app_user && \
+    mkdir -p node_modules/.cache && \
+    chown app_user node_modules/.cache
+
+USER app_user
+
+EXPOSE 8000
+
+CMD npm start

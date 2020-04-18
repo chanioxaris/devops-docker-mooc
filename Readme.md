@@ -6,3 +6,5 @@ The course is divide into 3 parts, and the repository also follows this structur
 ### [Part 1](Part1.md)
 
 ### [Part 2](Part2.md)
+
+### [Part 3](Part3.md)

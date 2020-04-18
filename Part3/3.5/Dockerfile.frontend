@@ -1,0 +1,16 @@
+FROM node:alpine
+
+ENV API_URL=http://localhost:8000
+
+COPY frontend-example-docker .
+
+RUN npm install && \
+    adduser -D app_user && \
+    mkdir dist && \
+    chown app_user dist
+
+USER app_user
+
+EXPOSE 5000
+
+CMD npm start
